@@ -10,14 +10,16 @@ def MarkSixLottery(n):
     balls = range(1, n+1)
     drawn = []
     for i in range(draws):
-        random.shuffle(balls)
+        numShuffle = random.randint(1,100)
+        for j in range(numShuffle):
+            random.shuffle(balls)
         pos = random.randint(0,len(balls)-1)
         drawn.append(balls.pop(pos))
     drawn.sort()
     print drawn
 
 def main():
-    trials = sys.argv[1]
+    trials = int(sys.argv[1])
     for i in range(trials):
         MarkSixLottery(49)
 
